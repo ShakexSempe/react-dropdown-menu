@@ -3,7 +3,7 @@ import React from 'react';
 function App() {
   return (
     <Navbar>
-      <NavItem icon="h"/>
+      <NavItem icon="&#128512;"/>
       <NavItem icon="&#128525;"/>
       <NavItem icon="&#128151;"/>
     </Navbar>
