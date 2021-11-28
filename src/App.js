@@ -17,13 +17,38 @@ function App() {
       <NavItem icon={<MessengerIcon />}/>
 
       <NavItem icon={<CaretIcon />}>
-        {/* dropdown goes here */}
-
+        <DropdownMenu />
       </NavItem>
     </Navbar>
   );
 }
 
+// DROPDOWN COMPONENT
+function DropdownMenu() {
+
+  function DropdownItem(props) {
+    return (
+      <a href="#" className="menu-item">
+        <span className="icon-button">{props.leftIcon}</span>
+
+        { props.children }
+
+        <span className="icon-right">{props.rightIcon}</span>
+        
+      </a>
+    )
+  }
+  return (
+    <div className="dropdown">
+      <DropdownItem>My Profile</DropdownItem>
+      <DropdownItem 
+        leftIcon={<CogIcon/>}
+        rightIcon={<ChevronIcon/>}>
+      </DropdownItem>
+    </div>
+  )
+}
+// NAVBAR COMPONENT
 function Navbar(props) {
   return (
     <nav className="navbar">
@@ -33,7 +58,7 @@ function Navbar(props) {
     </nav>
   )
 }
-
+// NAV ITEM COMPONENT
 function NavItem(props) {
 
   const [open, setOpen] = useState(false);
