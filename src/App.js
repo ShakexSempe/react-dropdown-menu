@@ -1,4 +1,5 @@
 import { ReactComponent as BellIcon } from './icons/bell.svg';
+import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as MessengerIcon } from './icons/messenger.svg';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
 import { ReactComponent as PlusIcon } from './icons/plus.svg';
@@ -31,7 +32,7 @@ function DropdownMenu() {
 
   function DropdownItem(props) {
     return (
-      <a href="#" className="menu-item">
+      <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)} >
         <span className="icon-button">{props.leftIcon}</span>
 
         { props.children }
@@ -48,11 +49,25 @@ function DropdownMenu() {
       timeout={500}
       classNames="menu-primary">
         <div className="menu">
+
         <DropdownItem>My Profile</DropdownItem>
         <DropdownItem 
-        leftIcon={<CogIcon/>}
-        rightIcon={<ChevronIcon/>}>Settings
+        leftIcon={<CogIcon />}
+        rightIcon={<ChevronIcon />}
+        goToMenu="settings"
+        >Settings
         </DropdownItem>
+        </div>
+      </CSSTransition>
+
+      <CSSTransition in={activeMenu === 'settings'} 
+      unmountOnExit 
+      timeout={500}
+      classNames="menu-secondary">
+        <div className="menu">
+        <DropdownItem 
+        leftIcon={<ArrowIcon />} goToMenu="main" />
+        <DropdownItem>Settings</DropdownItem>
         </div>
       </CSSTransition>
     </div>

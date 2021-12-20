@@ -134,3 +134,19 @@ a {
   transform: translateX(-110%);
   transition: all var(--speed) ease;
 }
+
+.menu-secondary-enter {
+  position: absolute;
+  transform: translateX(110%);
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-secondary-exit {
+  position: absolute;
+}
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}
