@@ -5,6 +5,7 @@ import { ReactComponent as PlusIcon } from './icons/plus.svg';
 import { ReactComponent as CogIcon } from './icons/cog.svg';
 import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 import { ReactComponent as BoltIcon } from './icons/bolt.svg';
+import { CSSTransition } from 'react-transition-group';
 
 import React, { useState } from 'react';
 
@@ -26,6 +27,8 @@ function App() {
 // DROPDOWN COMPONENT
 function DropdownMenu() {
 
+  const [activeMenu, setActiveMenu] = useState('main');
+
   function DropdownItem(props) {
     return (
       <a href="#" className="menu-item">
@@ -40,11 +43,18 @@ function DropdownMenu() {
   }
   return (
     <div className="dropdown">
-      <DropdownItem>My Profile</DropdownItem>
-      <DropdownItem 
+      <CSSTransition in={activeMenu === 'main'} 
+      unmountOnExit 
+      timeout={500}
+      classNames="menu-primary">
+        <div className="menu">
+        <DropdownItem>My Profile</DropdownItem>
+        <DropdownItem 
         leftIcon={<CogIcon/>}
-        rightIcon={<ChevronIcon/>}>
-      </DropdownItem>
+        rightIcon={<ChevronIcon/>}>Settings
+        </DropdownItem>
+        </div>
+      </CSSTransition>
     </div>
   )
 }
