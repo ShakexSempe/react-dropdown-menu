@@ -95,6 +95,8 @@ a {
   border-radius: var(--border-radius);
   padding: 1rem;
   overflow: hidden;
+
+  transition: height 10s ease;
 }
 
 .menu-item {
