@@ -70,7 +70,7 @@ function DropdownMenu() {
         </div>
       </CSSTransition>
     </div>
-  )
+  );
 }
 // NAVBAR COMPONENT
 function Navbar(props) {
